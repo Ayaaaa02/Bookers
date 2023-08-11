@@ -1,0 +1,35 @@
+<h1>Books</h1>
+
+<h4>Title</h4>
+
+<h4>body</h4>
+
+<%= @books.each do |book| %>
+<span><%= book.title %></span>
+<span><%= book.body %></span>  
+<span>
+   <%= link_to "Show" , book_path(book.id) %>
+</span>
+
+<span>
+   <%= link_to "Edit" , edit_book_path(book.id) %>
+</span>
+
+<span>
+   <%= link_to "Destory", book_path(book.id) , method: :delete, "data-confirm" => "Are you sure？"%>
+</span>
+<% end %>
+
+</h2>New book</h2>
+<!-- form_with部分 -->
+<%= form_with model: Book.new do |f| %>
+
+<h6>Title</h6>
+<%= f.text_field :title %>
+
+<h6>body</h6>
+<%= f.text_area :body %>
+<div class ="Create book">
+<%= f.submit 'Create Book' %>
+</div>
+<% end %>
