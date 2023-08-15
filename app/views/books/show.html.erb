@@ -1,21 +1,18 @@
-</h1>Editing Book</h1>
+<div class="reflect">
+<%= form_with model: @book, url: edit_book_path(@book.id), method: :patch do |f| %>
+<tr>
+<h4>Title:<p><%= @book.title %></p></h4>
 
-<!-- form_with部分 -->
-<%= form_with model: Book.new do |f| %>
-<h4>Title</h4>
-<%= f.text_field :title %>
 
-<h4>body</h4>
-<%= f.text_area :body %>
-<div class ="Update book">
-<%= f.submit 'Update Book' %>
+
+<h4>Body:<p><%= @book.body %></p></h4>
+
+</tr>
 </div>
-
-<span>
-     <%= link_to "Show" , book_path(book.id) %>
-</span>
-
-<span>
-   <%= link_to "Back" , book_path(book.id) %>
-</span>
+<div class="show-link">
+<div class="edit-link">
+<span> <%= link_to "Edit" , edit_book_path(@book.id) %></span>
+</div>
+<span> <%= link_to "Back" , "/books" %></span>
 <% end %>
+</div>
